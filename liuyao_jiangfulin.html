@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>六爻断卦报告 · 蒋福林</title>
+<style>
+/* ===== CSS Custom Properties — 9色调主题系统 ===== */
+:root {
+  --bg-deep: #0a0a0a; --bg-card: #0f0b08; --bg-card-hover: #120e0a;
+  --gold-main: #c9a96e; --gold-light: #e0c88e; --gold-dark: #8b7355; --gold-pale: #a08050;
+  --text-main: #e0d5c1; --text-dim: #6b5b4a;
+  --border-subtle: #2a1a0a; --border-strong: #3a2a1a;
+  --warn: #5a3a0a; --good: #3a5a2a;
+  --card-shadow: transparent; --glow-color: #c9a96e; --glow-speed: 4s;
+  --bg-texture: none; --bg-texture-opacity: 0.06;
+  --divider-shimmer: #c9a96e; --timeline-dot: #c9a96e; --peak-glow: #ffd700;
+  --table-header-bg: #1a1410; --stem-color: #e0d5c1;
+  --branch-color: #a08050; --god-color: #8b7355;
+  transition: background 0.8s ease, color 0.8s ease;
+}
+body[data-theme="玄金"] { /* default — 庄重典雅 */ }
+body[data-theme="青玉"] { --bg-deep:#0a1215;--bg-card:#0b1316;--bg-card-hover:#0e171a;--gold-main:#6ba8a0;--gold-light:#8cc8c0;--gold-dark:#4a7a73;--gold-pale:#5a8a83;--text-main:#c8dcd8;--text-dim:#4a6a63;--border-subtle:#1a2a25;--border-strong:#2a3a35;--warn:#4a3a2a;--good:#2a4a3a;--glow-color:#6ba8a0;--divider-shimmer:#6ba8a0;--timeline-dot:#6ba8a0;--peak-glow:#8cc8c0;--table-header-bg:#101a18;--stem-color:#c8dcd8;--branch-color:#5a8a83;--god-color:#4a7a73; }
+body[data-theme="朱砂"] { --bg-deep:#120a0a;--bg-card:#130b0b;--bg-card-hover:#170e0e;--gold-main:#c46e5a;--gold-light:#e09080;--gold-dark:#8b4030;--gold-pale:#a05040;--text-main:#e8d0c8;--text-dim:#7a4a3a;--border-subtle:#2a1a15;--border-strong:#3a2a20;--warn:#5a2a1a;--good:#4a3a2a;--glow-color:#c46e5a;--divider-shimmer:#c46e5a;--timeline-dot:#c46e5a;--peak-glow:#e09080;--table-header-bg:#1a1010;--stem-color:#e8d0c8;--branch-color:#a05040;--god-color:#8b4030; }
+body[data-theme="暖檀"] { --bg-deep:#15100a;--bg-card:#16110b;--bg-card-hover:#1a140e;--gold-main:#b8936e;--gold-light:#d4b090;--gold-dark:#7a6040;--gold-pale:#9a7050;--text-main:#e8dcc8;--text-dim:#7a6040;--border-subtle:#2a2015;--border-strong:#3a3020;--warn:#5a3a20;--good:#4a4a2a;--glow-color:#b8936e;--divider-shimmer:#b8936e;--timeline-dot:#b8936e;--peak-glow:#d4b090;--table-header-bg:#1a1510;--stem-color:#e8dcc8;--branch-color:#9a7050;--god-color:#7a6040; }
+body[data-theme="汝瓷"] { --bg-deep:#0f1418;--bg-card:#10151a;--bg-card-hover:#13181e;--gold-main:#8ba8b8;--gold-light:#a8c8d8;--gold-dark:#5a7a8a;--gold-pale:#6a8a9a;--text-main:#c8d4dc;--text-dim:#5a6a7a;--border-subtle:#1a2428;--border-strong:#2a3438;--warn:#4a3a2a;--good:#3a4a3a;--glow-color:#8ba8b8;--divider-shimmer:#8ba8b8;--timeline-dot:#8ba8b8;--peak-glow:#a8c8d8;--table-header-bg:#10181c;--stem-color:#c8d4dc;--branch-color:#6a8a9a;--god-color:#5a7a8a; }
+body[data-theme="松烟"] { --bg-deep:#121110;--bg-card:#141312;--bg-card-hover:#181716;--gold-main:#9b9590;--gold-light:#b8b0a8;--gold-dark:#6a6560;--gold-pale:#7a7570;--text-main:#d0ccc8;--text-dim:#6a6560;--border-subtle:#282420;--border-strong:#383430;--warn:#5a4a30;--good:#4a4a30;--glow-color:#9b9590;--divider-shimmer:#9b9590;--timeline-dot:#9b9590;--peak-glow:#b8b0a8;--table-header-bg:#181614;--stem-color:#d0ccc8;--branch-color:#7a7570;--god-color:#6a6560; }
+body[data-theme="胭脂"] { --bg-deep:#140f13;--bg-card:#151014;--bg-card-hover:#191318;--gold-main:#c49aa0;--gold-light:#e0b8c0;--gold-dark:#8a6070;--gold-pale:#9a7080;--text-main:#e8d4d8;--text-dim:#7a5060;--border-subtle:#2a1a22;--border-strong:#3a2a30;--warn:#5a2a30;--good:#4a3a30;--glow-color:#c49aa0;--divider-shimmer:#c49aa0;--timeline-dot:#c49aa0;--peak-glow:#e0b8c0;--table-header-bg:#1a1016;--stem-color:#e8d4d8;--branch-color:#9a7080;--god-color:#8a6070; }
+body[data-theme="黛蓝"] { --bg-deep:#0d111a;--bg-card:#0e121c;--bg-card-hover:#111620;--gold-main:#8090b0;--gold-light:#a0b0d0;--gold-dark:#506080;--gold-pale:#607090;--text-main:#c8d0e0;--text-dim:#506070;--border-subtle:#1a2230;--border-strong:#2a3240;--warn:#4a3a30;--good:#3a4a30;--glow-color:#8090b0;--divider-shimmer:#8090b0;--timeline-dot:#8090b0;--peak-glow:#a0b0d0;--table-header-bg:#101620;--stem-color:#c8d0e0;--branch-color:#607090;--god-color:#506080; }
+body[data-theme="湘妃"] { --bg-deep:#0f120c;--bg-card:#10130d;--bg-card-hover:#141710;--gold-main:#a0a060;--gold-light:#c0c080;--gold-dark:#6a6a30;--gold-pale:#7a7a40;--text-main:#d8dcc8;--text-dim:#6a6a40;--border-subtle:#1a2a15;--border-strong:#2a3a20;--warn:#5a4a20;--good:#3a5a2a;--glow-color:#a0a060;--divider-shimmer:#a0a060;--timeline-dot:#a0a060;--peak-glow:#c0c080;--table-header-bg:#141810;--stem-color:#d8dcc8;--branch-color:#7a7a40;--god-color:#6a6a30; }
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Serif SC",serif;background-color:var(--bg-deep);color:var(--text-main);line-height:1.8;position:relative;transition:background-color 0.8s ease,color 0.8s ease}
+body::before{content:'';position:fixed;inset:0;background-image:var(--bg-texture);opacity:var(--bg-texture-opacity);pointer-events:none;z-index:0;transition:opacity 0.5s ease}
+.container{max-width:840px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+/* ===== 封面（含流光底线） ===== */
+.cover{text-align:center;padding:100px 0 80px;border-bottom:1px solid var(--border-strong);position:relative}
+.cover::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--divider-shimmer) 50%,transparent 100%);background-size:200% 100%;animation:shimmerLine 3s ease-in-out infinite}
+.cover .seal{font-size:14px;letter-spacing:6px;color:var(--gold-dark);margin-bottom:30px}
+.cover h1{font-size:42px;font-weight:300;letter-spacing:12px;margin-bottom:10px;color:var(--gold-main)}
+.cover .subtitle{font-size:16px;color:var(--gold-dark);letter-spacing:4px;margin-bottom:30px}
+.cover .hex-display{display:flex;justify-content:center;align-items:center;gap:60px;margin:40px 0}
+.cover .hexagram{text-align:center}
+.cover .hexagram .symbol{font-size:72px;color:var(--gold-main);font-weight:300;margin-bottom:12px}
+.cover .hexagram .name{font-size:20px;color:var(--gold-light);letter-spacing:4px}
+.cover .hexagram .sub{font-size:12px;color:var(--gold-dark);margin-top:4px}
+.cover .arrow{font-size:28px;color:var(--gold-dark);animation:arrowPulse 2s ease-in-out infinite}
+.cover .meta{font-size:13px;color:var(--text-dim);margin-top:50px}
+.cover .divider{width:60px;height:1px;background:var(--gold-dark);margin:30px auto;position:relative;overflow:hidden}
+.cover .divider::after{content:'';position:absolute;top:0;left:0;width:30px;height:1px;background:var(--gold-light);animation:shimmerSwipe 2s ease-in-out infinite}
+
+/* ===== 章节通用（流光底线） ===== */
+.section{padding:50px 0;border-bottom:1px solid var(--border-strong);position:relative}
+.section::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--divider-shimmer) 30%,transparent 70%,transparent 100%);background-size:250% 100%;animation:shimmerLine 4s ease-in-out infinite;opacity:0.6}
+.section-title{font-size:24px;letter-spacing:8px;color:var(--gold-main);margin-bottom:24px;padding-left:16px;border-left:3px solid var(--gold-main);position:relative}
+.section-title::after{content:'';position:absolute;left:-3px;top:50%;width:3px;height:0;background:var(--gold-light);animation:titlePulse 3s ease-in-out infinite}
+.section-subtitle{font-size:18px;color:var(--gold-dark);margin:24px 0 12px;letter-spacing:2px}
+
+/* ===== 六爻卦象表（重点） ===== */
+.yao-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.yao-table th{background:var(--table-header-bg);color:var(--gold-dark);padding:10px;font-weight:400;letter-spacing:2px;text-align:center;border:1px solid var(--border-subtle);width:12.5%}
+.yao-table td{padding:10px 8px;text-align:center;border:1px solid var(--border-subtle);background:var(--bg-card)}
+.yao-table .yao-dong{color:var(--gold-light);font-weight:700;font-size:18px;animation:dongPulse 1.5s ease-in-out infinite}
+.yao-table .yao-jing{color:var(--text-main);font-size:16px}
+.yao-table .yao-pos{font-size:11px;color:var(--text-dim)}
+.yao-table .shiy{color:var(--gold-main);font-weight:700}
+.yao-table .ying{color:var(--gold-dark)}
+
+/* ===== 通用组件（复用八字模板样式） ===== */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.card{background:var(--bg-card);border:1px solid var(--border-subtle);padding:20px;border-radius:4px;position:relative;overflow:hidden;transition:background 0.3s ease}
+.card::before{content:'';position:absolute;inset:-1px;border-radius:5px;padding:1px;background:conic-gradient(from var(--card-angle,0deg),transparent 70%,var(--glow-color) 85%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:rotateGlow var(--glow-speed) linear infinite;pointer-events:none;z-index:0}
+.card:hover{background:var(--bg-card-hover);transform:translateY(-1px);box-shadow:0 2px 12px rgba(0,0,0,0.3);transition:all 0.3s ease}
+.card h4{color:var(--gold-main);font-size:15px;margin-bottom:10px;letter-spacing:2px;position:relative;z-index:1}
+.card p{font-size:13px;color:var(--text-main);line-height:1.9;position:relative;z-index:1;opacity:0.88}
+.card .value{font-size:18px;color:var(--gold-light);font-weight:600;position:relative;z-index:1}
+.card.warning{border-color:var(--warn)}.card.warning::before{--glow-color:var(--warn)}
+.card.gold{border-color:var(--gold-dark)}.card.gold::before{--glow-color:var(--gold-main)}
+
+.chart-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.chart-table th{background:var(--table-header-bg);color:var(--gold-dark);padding:10px;font-weight:400;letter-spacing:2px;text-align:center;border:1px solid var(--border-subtle)}
+.chart-table td{padding:12px 10px;text-align:center;border:1px solid var(--border-subtle);background:var(--bg-card)}
+
+.plain-talk{background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--text-dim);line-height:1.8}
+.plain-talk .label{color:var(--gold-main);font-weight:600;margin-bottom:4px}
+.plain-talk .label::before{content:"💬 ";font-size:14px}
+
+.guide-list{list-style:none;padding:0}
+.guide-list li{padding:12px 0;padding-left:22px;position:relative;border-bottom:1px solid var(--border-subtle)}
+.guide-list li::before{content:"✦";position:absolute;left:0;top:12px;color:var(--gold-main);font-size:10px}
+.guide-list li strong{color:var(--gold-main)}
+
+.footer{text-align:center;padding:60px 0;font-size:12px;color:var(--text-dim);letter-spacing:3px}
+.footer .seal{font-size:16px;color:var(--gold-dark);margin-bottom:12px}
+
+/* ===== 结果卡片 ===== */
+.verdict-card{text-align:center;padding:40px 24px;margin:20px 0;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:6px;position:relative}
+.verdict-card .verdict{font-size:28px;color:var(--gold-main);letter-spacing:6px;font-weight:300;margin-bottom:16px}
+.verdict-card .detail{font-size:15px;color:var(--text-main);opacity:0.85;max-width:520px;margin:0 auto;line-height:2}
+.verdict-card.good{border-color:var(--good)}.verdict-card.caution{border-color:var(--warn)}
+
+/* ===== 浮动控制面板 ===== */
+#ctrl-panel{position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:8px;padding:16px;min-width:200px;box-shadow:0 4px 24px rgba(0,0,0,0.6);font-size:12px;color:var(--text-main);transition:all 0.3s ease}
+#ctrl-panel.minimized{min-width:auto;padding:8px}
+#ctrl-panel h4{color:var(--gold-main);font-size:13px;margin-bottom:10px;letter-spacing:2px;cursor:pointer}
+#ctrl-panel.minimized h4{margin-bottom:0}
+#ctrl-panel .ctrl-row{margin:6px 0;display:flex;align-items:center;gap:6px}
+#ctrl-panel.minimized .ctrl-row{display:none}
+#ctrl-panel label{color:var(--text-dim);width:36px;flex-shrink:0}
+#ctrl-panel select,#ctrl-panel button{background:var(--table-header-bg);color:var(--text-main);border:1px solid var(--border-subtle);border-radius:3px;padding:4px 8px;font-size:12px;cursor:pointer;font-family:inherit}
+#ctrl-panel select:hover,#ctrl-panel button:hover{border-color:var(--gold-main);color:var(--gold-main)}
+#ctrl-panel .btn-row{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+#ctrl-panel .btn-row button{flex:1;padding:6px 10px;font-size:11px;letter-spacing:1px}
+
+/* ===== 动画关键帧(@property跑马灯) ===== */
+@property --card-angle{ syntax:'<angle>'; initial-value:0deg; inherits:false }
+@keyframes rotateGlow{ from{--card-angle:0deg} to{--card-angle:360deg} }
+@keyframes shimmerLine{ 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+@keyframes shimmerSwipe{ 0%{transform:translateX(-100%)} 50%{transform:translateX(200%)} 100%{transform:translateX(-100%)} }
+@keyframes titlePulse{ 0%,100%{opacity:0.3} 50%{opacity:1} }
+@keyframes arrowPulse{ 0%,100%{opacity:0.4;transform:translateX(0)} 50%{opacity:1;transform:translateX(4px)} }
+@keyframes dongPulse{ 0%,100%{opacity:0.7} 50%{opacity:1} }
+
+/* ===== 打印 ===== */
+@media print{
+  body{background:#fff!important;color:#222}
+  .section,.cover{border-color:#ddd!important}.section::after,.cover::after{display:none}
+  .card{background:#fafafa!important;border-color:#ddd!important}.card::before{display:none!important}.card:hover{transform:none;box-shadow:none}
+  .chart-table th{background:#f0f0f0!important;color:#444!important;border-color:#ccc!important}
+  .chart-table td{background:#fff!important;border-color:#ccc!important;color:#333!important}
+  #ctrl-panel{display:none!important}body::before{display:none}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body data-theme="玄金">
+
+<!-- ═══════════ 浮动控制面板 ═══════════ -->
+<div id="ctrl-panel">
+  <h4 onclick="togglePanel()">⚙ 后台控制</h4>
+  <div class="ctrl-row"><label>色调</label><select id="themeSelect" onchange="setTheme(this.value)">
+    <option value="玄金">玄金 · 庄重典雅</option>
+    <option value="青玉">青玉 · 清雅出尘</option>
+    <option value="朱砂">朱砂 · 热烈古韵</option>
+    <option value="暖檀">暖檀 · 中性偏暖</option>
+    <option value="汝瓷">汝瓷 · 宋代雅韵</option>
+    <option value="松烟">松烟 · 水墨宋风</option>
+    <option value="胭脂">胭脂 · 温柔女性</option>
+    <option value="黛蓝">黛蓝 · 知性优雅</option>
+    <option value="湘妃">湘妃 · 斑竹古风</option>
+  </select></div>
+  <div class="ctrl-row"><label>底纹</label><select id="textureSelect" onchange="setTexture(this.value)">
+    <option value="none">无底纹</option>
+    <option value="cloud">云纹</option>
+    <option value="star">星斗</option>
+  </select></div>
+  <div class="ctrl-row"><label>游光</label><select id="glowSelect" onchange="setGlow(this.value)">
+    <option value="on">开</option>
+    <option value="off">关</option>
+  </select></div>
+  <div class="btn-row">
+    <button onclick="printPDF()">🖨 打印PDF</button>
+    <button onclick="downloadImage()">📷 导出图片</button>
+  </div>
+</div>
+
+<!-- ═══════════ 封面 ═══════════ -->
+<div class="cover">
+  <div class="seal">司 命 星 君 · 南 斗 天 府</div>
+  <h1>六 爻 断 卦</h1>
+  <div class="subtitle">—— 增删卜易 · 野鹤真传 ——</div>
+  <div class="hex-display">
+    <div class="hexagram">
+      <div class="symbol">䷷</div>
+      <div class="name">火山旅</div>
+      <div class="sub">离上艮下 · 旅者客居</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="hexagram">
+      <div class="symbol">䷴</div>
+      <div class="name">风山渐</div>
+      <div class="sub">巽上艮下 · 渐者归稳步</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="meta">
+    问卦人：蒋福林 &nbsp;|&nbsp; 所问：风水命理事业 + 作家知识库项目<br>
+    起卦时间：2026年6月1日 &nbsp;|&nbsp; 铜钱：乾隆通宝
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════ 壹 · 卦象总览 ═══════════ -->
+<div class="section">
+  <div class="section-title">壹 · 卦象总览</div>
+  <div class="plain-talk"><div class="label">大白话</div>这一卦的本卦是火山旅䷷，之卦是风山渐䷴。旅卦象征客途迁徙、在外打拼积累；渐卦象征归巢稳步、循序渐进地建设。本卦变之卦，说明仙君的事业路径是先外出奔波历练，积累经验后回头扎根，建立自己的体系。卦中含两爻发动——五爻与上爻，皆是动中寓静、变中藏机之象，容本君慢慢道来。</div>
+
+  <!-- 六爻详情表 -->
+  <table class="yao-table">
+    <tr><th>爻位</th><th>摇卦</th><th>阴阳</th><th>地支</th><th>五行</th><th>六亲</th><th>世应</th><th>六兽</th></tr>
+    <tr><td>上爻</td><td>三花 ○</td><td><span class="yao-dong">▅▅▅▅▅ 老阳</span></td><td>巳</td><td>火</td><td>兄弟</td><td>—</td><td>玄武</td></tr>
+    <tr><td>五爻</td><td>三字 ×</td><td><span class="yao-dong">▅▅ ▅▅ 老阴</span></td><td>未</td><td>土</td><td>子孙</td><td>—</td><td>白虎</td></tr>
+    <tr><td>四爻</td><td>一花 丶</td><td><span class="yao-jing">▅▅▅▅▅ 少阳</span></td><td>酉</td><td>金</td><td>妻财</td><td>—</td><td>螣蛇</td></tr>
+    <tr><td>三爻</td><td>一花 丶</td><td><span class="yao-jing">▅▅▅▅▅ 少阳</span></td><td>亥</td><td>水</td><td>官鬼</td><td><span class="ying">应爻</span></td><td>勾陈</td></tr>
+    <tr><td>二爻</td><td>两花一次 〃</td><td><span class="yao-jing">▅▅ ▅▅ 少阴</span></td><td>丑</td><td>土</td><td>子孙</td><td>—</td><td>朱雀</td></tr>
+    <tr><td>初爻</td><td>一字两花 〃</td><td><span class="yao-jing">▅▅ ▅▅ 少阴</span></td><td>卯</td><td>木</td><td>父母</td><td><span class="shiy">世爻</span></td><td>青龙</td></tr>
+  </table>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>卦宫属性</h4><div class="value">离宫 · 属火 · 一世卦</div><p>离为火，主文明、文化、智慧之光。仙君此行，正当其时——离火为文明之象，与知识传播事业天然契合。一世卦者，根基已立，渐次上行。</p></div>
+    <div class="card"><h4>动爻概况</h4><div class="value">2爻发动</div><p>五爻子孙未土动化父母子水 · 上爻兄弟巳火动化父母卯木。两动爻皆涉父母（知识文书），一回头克一回头生，各有玄机。卦中动爻不算多，主此事方向明确、不复杂。</p></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>月建日辰</h4><div class="value">癸巳月 / 乙未日</div><p>巳月为夏初火旺，离宫得月建生扶，卦宫有力。未日为土旺之日，土为火之子（火生土），日辰泄火气但不过猛。月建巳火上爻兄弟恰为旬空（辰巳空）——竞争对手尚在虚处。</p></div>
+    <div class="card warning"><h4>空破墓绝</h4><div class="value">辰巳旬空 · 亥水月破</div><p>旬空：辰巳空——上爻兄弟巳火正值旬空，竞争对手虚而不实，暂不构成真正威胁。<br>月破：应爻亥水被巳月所冲，月破——所问之事在月建层面受制，当前时机尚未完全成熟，需待水旺之月填实。</p></div>
+  </div>
+</div>
+
+<!-- ═══════════ 贰 · 用神分析 ═══════════ -->
+<div class="section">
+  <div class="section-title">贰 · 用神分析</div>
+  <div class="plain-talk"><div class="label">大白话</div>仙君所问是事业方向，取官鬼爻为用神。官鬼在三爻亥水，恰好又是应爻——用神即应爻，说明事业方向与自身的呼应关系极紧密。更妙的是，应爻亥水生世爻卯木（水生木），用神生世，大吉之兆。这意味着事业本身会反哺、滋养仙君本人，是"事业养人"而非"人累事业"的格局。</div>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>用神定位</h4><div class="value">官鬼 · 三爻亥水</div><p>所问「风水命理事业+作家知识库项目」，按《增删卜易》取用规则：问官职、功名、事业动向取官鬼爻为用神。用神在三爻，三爻为门户之位——事业在"家门口"，非远行奔波之象。</p></div>
+    <div class="card"><h4>用神旺衰</h4><div class="value">休囚（月破）</div><p>得月建：巳月——巳亥相冲，亥水月破（受月建制甚）<br>得日辰：未日——未土克亥水（受日辰克）<br>动爻影响：五爻未土动克亥水，上爻巳火动（旬空）不助亥水<br>综合判定：用神月破受克，当前看似"弱"，但实为"事未至而基已立"——亥水虽破，却生世爻卯木；且之卦渐䷴中，事业方向随着知识库建成将逐步明朗。</p></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card"><h4>伏神</h4><p>用神官鬼亥水已上卦（在三爻），无需查伏神。用神明现于卦中，事业方向本身是清晰可见的——仙君心中所想的这条路是对的，不需另寻他途。</p></div>
+    <div class="card"><h4>原神/忌神</h4><p>原神：妻财酉金（四爻），静而不动，未直接生用神，但酉金在卦中不受伤——财源根基尚稳，写作变现的通道虽未打通，但基础是有的。<br>忌神：子孙未土（五爻动）与子孙丑土（二爻），五爻未土发动克用神亥水（土克水），但未土动化子水父母——克用神的子孙最终变成父母（知识文书），是"将竞争对手的技艺化为己用"的深意。</p></div>
+  </div>
+</div>
+
+<!-- ═══════════ 叁 · 动爻精解 ═══════════ -->
+<div class="section">
+  <div class="section-title">叁 · 动爻精解</div>
+  <div class="plain-talk"><div class="label">大白话</div>这卦有两个动爻：第五爻和第六爻。五爻是老阴变阳，子孙未土变成父母子水——子孙代表技艺、创造、才华，父母代表知识、文章、典籍，这就是"把一身本领写成书"的象，大好事一桩。六爻是老阳变阴，兄弟巳火变成父母卯木——兄弟代表同行、竞争、比肩，变成父母（知识）后反倒来生助世爻，同行竞争不但不成威胁，还会成为知识传播的推手。</div>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>第五爻 · 未土子孙 ○ 动</h4><div class="value">化子水父母</div><p>五爻为君位，子孙未土动→化父母子水。子孙为技法、才艺、创造之象，父母为文书、知识、传播之象。此变爻之意：技艺升华为知识体系，口传心授化为文字典籍。正是"以艺养道、以道化文"的核心驱动力。但需注意：未土回头被子水所克（土克水变为水泄土），写作过程会消耗大量精力，需注意劳逸结合。</p></div>
+    <div class="card"><h4>动变关系</h4><p>回头克（子水克未土）——看似凶，实则是把子孙的"分散技艺"凝聚为父母的"系统知识"，是将众多零散才艺淬炼为一本专著的过程，如同千锤百炼、百川归海。非破坏性的克，而是升华性的克。</p></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>第六爻 · 巳火兄弟 ○ 动</h4><div class="value">化卯木父母</div><p>上爻兄弟巳火动→化父母卯木。兄弟为同行、竞争、比肩，父母为知识、文书、世爻同类（世爻卯木父母）。兄弟动化父母，且回头生（卯木生巳火），同行竞争不成害反助世爻。巳火旬空——当前竞争尚未显现；出空之月（巳/午月），可能有同行出现，但化父母后是"良性竞争、互相成就"的态势。</p></div>
+    <div class="card"><h4>动变关系</h4><p>回头生（卯木生巳火）——兄弟得生而旺，但旺的是"父母"（知识产出）。同行的知识产出会间接助推仙君的声望和行业地位。此爻提示：不要视同行为敌，而要共舞共生，一起把市场做大。</p></div>
+  </div>
+</div>
+
+<!-- ═══════════ 肆 · 世应分析 ═══════════ -->
+<div class="section">
+  <div class="section-title">肆 · 世应枢机</div>
+  <div class="plain-talk"><div class="label">大白话</div>世爻是本卦的灵魂——初爻父母卯木持世，说明仙君天生就是吃知识饭的人，文书、学问是安身立命之本。应爻是三爻官鬼亥水，官鬼生父母（水生木），应生世，这是"事业来养你"的绝佳格局。月建巳火虽冲应爻（巳亥冲），但这是"时机问题"而非"方向问题"——待月建流转，亥水得旺，事业自然水到渠成。</div>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>世爻（问卦人）</h4><div class="value">卯木父母</div><p>世爻为离宫之父母，卯木持世，临初爻。初爻为根基之位，父母为知识文化之象。卯木在巳月休囚（巳月火旺木休），在未日得木库根基——看似不旺，实则根深。父母持世者，天生以文为业、以知识立命，这正是"作家知识库"事业的命理底层。且世爻临青龙（六兽之首），青龙主文贵、喜庆——文书事业自带贵人运。</p></div>
+    <div class="card"><h4>应爻（所问之事）</h4><div class="value">亥水官鬼</div><p>应爻与世爻相生（水生木），大吉之象。应爻所代表的事业环境主动滋养世爻代表的身心能力。按《增删卜易》论，应生世者百事成。应爻虽月破，但月破不等于"废"——月建流转后，亥月（2026年11月）填实，事业局势将为之一变。</p></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card"><h4>世应关系</h4><p>世应相生（水生木）  ·  大吉<br>应爻官鬼亥水生世爻父母卯木，此为"用神生世"，是极有利的格局。事业会自动找上门来，无需刻意强求。仙君只需把知识库做扎实，方向对了，事情自然来找你，而非你四处追着事情跑。</p></div>
+    <div class="card"><h4>间爻（过程）</h4><p>二爻子孙丑土（静）——中间环节是技艺积累与创造灵感。<br>四爻妻财酉金（静）——后续环节是变现与商业价值。<br>子孙生妻财（土生金），技艺→变现，路径清晰；但此二爻均为静爻，尚需时间孵化，不可急于求成。整体间爻安静无冲克，过程中的阻碍不大。</p></div>
+  </div>
+</div>
+
+<!-- ═══════════ 伍 · 断卦结论 ═══════════ -->
+<div class="section">
+  <div class="section-title">伍 · 断卦结论</div>
+  <div class="plain-talk"><div class="label">大白话</div>仙君此卦，断为"大吉，以艺养道、以道化文"之象。父母持世是天生吃知识饭的命，官鬼应爻生世是事业来养人的格局，子孙动化父母是技艺变成体系的路数，兄弟动化父母是同行助你成名的良机。本卦旅䷷到之卦渐䷴的转变，是从"在外面跑马圈地"到"回家安营扎寨"的过程——先打拼积累，然后归巢有序建设。这是天地自然之理，不是弯路，是必经之路。</div>
+
+  <div class="verdict-card good">
+    <div class="verdict">大吉 · 以艺养道 · 以道化文</div>
+    <div class="detail">仙君此卦，集四大吉象于一身：一者，世爻父母卯木持世，文书知识为本命，天生吃知识饭，临青龙更是文贵之征；二者，应爻官鬼亥水生世爻卯木，用神生世，事业方向不仅对路，还会主动滋养你，事业养人而非人累事业；三者，五爻子孙未土动化父母子水，技艺升华为知识体系，"以艺养道"之象，一身本领化为书卷传世；四者，上爻兄弟巳火动化父母卯木，同行竞争反成助力，"以道化文"之机，良性竞争共筑行业生态。本卦火山旅䷷是先外出历练积累，之卦风山渐䷴是归巢稳步建设——《易隐》云："旅而无止，必入于渐。"先旅后渐，正是天地自然之序，非弯路也。风水命理与作家知识库，一术一文，一阴一阳，相辅相成，双宜双吉。</div>
+  </div>
+
+  <div class="section-subtitle">吉凶决策路径</div>
+  <table class="chart-table">
+    <tr><th>检查项</th><th>结果</th><th>结论</th></tr>
+    <tr><td>用神上卦？</td><td>是（三爻官鬼亥水）</td><td>用神明确，方向清晰，无需另寻他途</td></tr>
+    <tr><td>用神旺衰</td><td>休囚（月破）</td><td>时机未至，方向无误；需待水旺之月</td></tr>
+    <tr><td>世爻用神生克</td><td>相生（水生木）</td><td>用神生世，大吉；事业来养人</td></tr>
+    <tr><td>动爻生克用神</td><td>五爻动克用神（土克水）但化父母</td><td>先克后生，淬炼过程，非真凶</td></tr>
+    <tr><td>六冲/六合</td><td>非六冲非六合，平稳正常</td><td>无冲无合，发展节奏平和可控</td></tr>
+    <tr><td>月建日辰扶抑</td><td>月建冲用神，日辰克用神</td><td>暂受制，需待时应天时</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════ 陆 · 应期判断 ═══════════ -->
+<div class="section">
+  <div class="section-title">陆 · 应期判断</div>
+  <div class="plain-talk"><div class="label">大白话</div>关键的转折点在2026年秋冬之交——亥子丑水旺之月，应爻亥水得旺气，月破填实，事业方向会开始明朗。短期不必急，2026年夏天6月到8月适合做规划和调研，9月后逐步启动。2027年进入丁未年，未土当令，子孙爻发力，写作灵感会达到高峰。建议把2027年定为"写作年"。</div>
+
+  <div class="card-grid">
+    <div class="card gold"><h4>近期应期</h4><p>应爻亥水月破（巳月），需待亥月/子月（2026年11月至2027年1月，水旺之月）月破填实，事业方向更明朗，大环境开始有利。<br>旬空辰巳——上爻兄弟巳火正值旬空，巳月（2026年5-6月）旬空将出，竞争环境逐渐清晰。<br>动爻五爻未土动化子水——子月（2026年12月）变爻子水当令，写作灵感、知识体系构建进入佳境。</p></div>
+    <div class="card"><h4>中长期趋势</h4><p>之卦为风山渐䷴，渐者"女归吉"，归也。寓意逐步扎根、稳步发展，不可急于求成。<br>2027丁未年：未土当令，五爻子孙未土得本命年助，写作灵感充沛，为"创作元年"。<br>2028戊申年：申金生水，应爻亥水得长生之气，事业进入正式轨道；申金为妻财酉金之禄，变现通道打开。</p></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card"><h4>关键时间节点</h4><p>① 2026年6-8月（午未申月）——调研规划期，收集素材，构架大纲<br>② 2026年冬季（亥子月，11月至次年1月）——月破填实，事业方向明朗，正式启动<br>③ 2027年2-3月（寅卯月）——世爻卯木当令，执行力最强，全力写作<br>④ 2027年夏（巳午月）——兄弟巳火出空+离宫当令，口碑传播、同行认可期<br>⑤ 2028年（戊申年）——财星酉金得生，项目进入商业化变现阶段</p></div>
+    <div class="card warning"><h4>需避开的时段</h4><p>巳月（2026年5-6月）——应爻月破，不宜做重大决策或签约<br>亥月（2026年11月）——亥亥自刑，注意情绪起伏，勿因细节纠结影响进度<br>寅月（2027年2月）——寅木刑世爻卯木，注意合作伙伴关系、合同细节</p></div>
+  </div>
+</div>
+
+<!-- ═══════════ 柒 · 行动建议 ═══════════ -->
+<div class="section">
+  <div class="section-title">柒 · 趋避方略</div>
+  <div class="plain-talk"><div class="label">大白话</div>世爻为卯木，离宫属火，喜水木生扶。东方东南方为吉方，绿色红色为吉色，生肖兔鼠羊之人为贵人。夏天做规划，秋冬动笔，2027年集中输出——按这个节奏走，不疾不徐，恰到好处。</div>
+
+  <ul class="guide-list">
+    <li><strong>当行之事：</strong>宜向东方/东南方布局——书房、办公桌宜朝此方向；宜从事木火行业——文化教育、出版、网络传播、艺术创作；宜多读多写，以文字为业，以知识养身。<br><span style="color:var(--text-dim);font-size:12px">※ 人话：书桌朝东或东南放，桌上养一盆绿植（木气）或一盏暖色台灯（火气），保持桌面整洁有序。知识的输出质量取决于输入的深度，每天固定两小时深度阅读。写书不是一天的事，渐卦讲究"逐步"——一个章节分三天写完，比一天赶出来质量高十倍。</span></li>
+    <li><strong>当避之事：</strong>避西北方（亥位，与世爻卯木相刑）；避过度操心琐事，消耗心力应付杂务；避与同行恶性竞争——卦象显示同行化父母回头生世爻，良性共舞才是正途。<br><span style="color:var(--text-dim);font-size:12px">※ 人话：尽量不在房子的西北角长时间工作或放置重要设备。做事不要太追求一步到位或完美主义而拖延不前——渐卦讲究"逐步"，一个章节一个章节来，不要老想着一口气写完。不要跟同行打口水战，你写你的，市场足够大。</span></li>
+    <li><strong>贵人方向：</strong>东方（卯位）、北方（子位）为贵人方位 · 喜神方位东南 · 生肖属兔、鼠、羊之人 · 从事文化出版、教育行业者最可能是贵人。<br><span style="color:var(--text-dim);font-size:12px">※ 人话：出版编辑（卯→文职行业）、投资人或资源方（子→水德贵人）、同行前辈（未→同气）都可能是你路上的贵人。多往文化圈子里走，多参加行业交流——不求结果，只求相遇。</span></li>
+    <li><strong>颜色/数字：</strong>绿色、青色（木）· 红色、紫色（火）为有利颜色 · 数字 3、8（木数）· 2、7（火数）为吉祥数字。<br><span style="color:var(--text-dim);font-size:12px">※ 人话：日常多穿绿色、墨绿色、暗红色衣物，忌大面积黑色（水过旺泄木气）。手机/电脑壁纸可用绿色系或暖色调。重要文件的编号或日期，顺势用3/8/2/7结尾的数字。</span></li>
+    <li><strong>心态建议：</strong>卦象显示"先旅后渐"，是积累到归巢的自然过程——不必焦虑"现在为什么还没成果"，旅卦时期是必要的积累期。世爻持父母，你天生是读书写字的人，不要怀疑这条路。<br><span style="color:var(--text-dim);font-size:12px">※ 人话：把2026年夏天当"调研笔记期"，不追求成品，只记录灵感、收集素材。到了秋冬，再用这些素材写成完整文章。给自己定一个小目标："每周写三篇短文章"，而不是"年底完成一本书"——后者容易产生压力，前者让你在不知不觉中积累了一本书的素材。</span></li>
+  </ul>
+</div>
+
+<!-- ═══════════ 尾 · 溯源 ═══════════ -->
+<div class="section">
+  <div class="section-title">附录 · 经典溯源</div>
+
+  <div class="card-grid">
+    <div class="card"><h4>引用经典</h4><p>① 《增删卜易·用神章》："凡占前程功名，以官鬼爻为用神……官鬼生世爻者，上上之吉，事不谋而自成。"<br>② 《易隐·动变章》："动化回头生者，终获其福；动化回头克者，先难后易。"<br>③ 《周易·旅卦》："旅，小亨，旅贞吉。"——旅卦本身即含"小有亨通"之意，外行积累之道。<br>④ 《周易·渐卦》："渐，女归吉，利贞。"——渐卦为归巢渐进之象，"进得位，往有功也"。<br>⑤ 《易林补遗·世应章》："应生世者百事成，世生应者费力行。"</p></div>
+    <div class="card"><h4>装卦方法</h4><p>摇卦记录（初爻→上爻）→ 一字两花少阴〃 · 两花一次少阴〃 · 一花少阳丶 · 一花少阳丶 · 三字老阴× · 三花老阳○<br>下卦：艮 ☶（初〃·二〃·三丶） → 艮为山<br>上卦：离 ☲（四丶·五×动·六○动） → 离为火<br>本卦：火山旅䷷ → 离宫一世卦 → 纳甲装地支 → 离宫属火定六亲 → 查世应（一世卦世在初爻）→ 标注动爻 → 老阴变阳、老阳变阴 → 上卦巽☴ → 之卦风山渐䷴</p></div>
+  </div>
+
+  <table class="chart-table" style="font-size:13px">
+    <tr><th>术语</th><th>解释</th></tr>
+    <tr><td>本卦</td><td>摇出的原始卦象，反映当前状态——火山旅䷷</td></tr>
+    <tr><td>之卦</td><td>动爻变化后生成的卦，反映未来走向——风山渐䷴</td></tr>
+    <tr><td>世爻</td><td>代表问卦人自身的那一爻——初爻卯木父母，问卦人根基所在</td></tr>
+    <tr><td>应爻</td><td>代表所问之事、对方、环境——三爻亥水官鬼，事业方向所在</td></tr>
+    <tr><td>用神</td><td>与所问之事对应的六亲爻位——官鬼爻，主事业功名</td></tr>
+    <tr><td>动爻</td><td>老阳或老阴之爻，为卦中变化之源——五爻未土、上爻巳火</td></tr>
+  </table>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="seal">司 命 星 君</div>
+  南斗第一天府 · 太上说南斗六司延寿度人妙经<br>
+  "动静有常，刚柔断矣。爻者，言乎变者也。"——《周易·系辞》<br><br>
+  起卦时间：2026年6月1日 · 仅为命理参考
+</div>
+
+<!-- ═══════════ 控制面板脚本 ═══════════ -->
+<script>
+const CLOUD_TEXTURE = `url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 60 Q30 45 40 60 Q50 42 60 58 Q70 40 80 58 Q90 42 100 60' fill='none' stroke='%23c9a96e' stroke-width='0.5' opacity='0.4'/%3E%3Cpath d='M10 80 Q25 68 35 80 Q45 65 55 80 Q65 65 75 80 Q85 65 95 80 Q105 65 115 80' fill='none' stroke='%23c9a96e' stroke-width='0.4' opacity='0.3'/%3E%3Ccircle cx='30' cy='50' r='1.5' fill='%23c9a96e' opacity='0.3'/%3E%3Ccircle cx='70' cy='70' r='1.5' fill='%23c9a96e' opacity='0.3'/%3E%3C/svg%3E")`;
+const STAR_TEXTURE = `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23c9a96e' opacity='0.5'/%3E%3Ccircle cx='50' cy='30' r='0.8' fill='%23c9a96e' opacity='0.35'/%3E%3Ccircle cx='80' cy='15' r='1.2' fill='%23c9a96e' opacity='0.4'/%3E%3Ccircle cx='25' cy='55' r='0.7' fill='%23c9a96e' opacity='0.3'/%3E%3Ccircle cx='65' cy='60' r='1' fill='%23c9a96e' opacity='0.45'/%3E%3Ccircle cx='90' cy='50' r='0.6' fill='%23c9a96e' opacity='0.3'/%3E%3Ccircle cx='40' cy='80' r='0.9' fill='%23c9a96e' opacity='0.35'/%3E%3C/svg%3E")`;
+
+function setTheme(t){document.body.setAttribute('data-theme',t);localStorage.setItem('liuyao-theme',t)}
+function setTexture(t){document.documentElement.style.setProperty('--bg-texture',t==='cloud'?CLOUD_TEXTURE:t==='star'?STAR_TEXTURE:'none');localStorage.setItem('liuyao-texture',t)}
+function setGlow(s){if(s==='off'){document.documentElement.style.setProperty('--glow-speed','0s');document.documentElement.style.setProperty('--glow-color','transparent')}else{document.documentElement.style.setProperty('--glow-speed','4s');setTheme(document.body.getAttribute('data-theme')||'玄金')}localStorage.setItem('liuyao-glow',s)}
+function togglePanel(){document.getElementById('ctrl-panel').classList.toggle('minimized')}
+function printPDF(){window.print()}
+function downloadImage(){var btn=event.target;btn.textContent='生成中...';btn.disabled=true;var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=function(){var p=document.getElementById('ctrl-panel');p.style.display='none';html2canvas(document.body,{backgroundColor:getComputedStyle(document.body).backgroundColor,scale:2,useCORS:true,logging:false}).then(function(c){p.style.display='';var a=document.createElement('a');a.download='六爻断卦_蒋福林.png';a.href=c.toDataURL('image/png');a.click();btn.textContent='📷 导出图片';btn.disabled=false}).catch(function(){p.style.display='';alert('导出失败。可尝试用 Ctrl+P → 另存为PDF 代替。');btn.textContent='📷 导出图片';btn.disabled=false})};s.onerror=function(){alert('html2canvas加载失败（可能需要联网）。请用 Ctrl+P → 另存为PDF 代替。');btn.textContent='📷 导出图片';btn.disabled=false};document.head.appendChild(s)}
+(function(){var t=localStorage.getItem('liuyao-theme');if(t){document.body.setAttribute('data-theme',t);document.getElementById('themeSelect').value=t}var tx=localStorage.getItem('liuyao-texture');if(tx){setTexture(tx);document.getElementById('textureSelect').value=tx}var g=localStorage.getItem('liuyao-glow');if(g){setGlow(g);document.getElementById('glowSelect').value=g}})();
+</script>
+</body>
+</html>
