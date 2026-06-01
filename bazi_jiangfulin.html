@@ -468,7 +468,7 @@ function togglePanel(){document.getElementById('ctrl-panel').classList.toggle('m
 function printPDF(){window.print()}
 function downloadImage(){var btn=event.target;btn.textContent='生成中...';btn.disabled=true;var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=function(){var p=document.getElementById('ctrl-panel');p.style.display='none';html2canvas(document.body,{backgroundColor:getComputedStyle(document.body).backgroundColor,scale:2,useCORS:true,logging:false}).then(function(c){p.style.display='';var a=document.createElement('a');a.download='八字命理_蒋福林.png';a.href=c.toDataURL('image/png');a.click();btn.textContent='📷 导出图片';btn.disabled=false}).catch(function(){p.style.display='';alert('导出失败。可尝试用 Ctrl+P → 另存为PDF 代替。');btn.textContent='📷 导出图片';btn.disabled=false})};s.onerror=function(){alert('html2canvas加载失败（可能需要联网）。请用 Ctrl+P → 另存为PDF 代替。');btn.textContent='📷 导出图片';btn.disabled=false};document.head.appendChild(s)}
 (function(){var t=localStorage.getItem('report-theme');if(t){document.body.setAttribute('data-theme',t);document.getElementById('themeSelect').value=t}var tx=localStorage.getItem('report-texture');if(tx){setTexture(tx);document.getElementById('textureSelect').value=tx}var g=localStorage.getItem('report-glow');if(g){setGlow(g);document.getElementById('glowSelect').value=g}})();
-(function(){if(new URLSearchParams(location.search).has('published')){document.getElementById('ctrl-panel').style.display='none'}})();
+(function(){document.getElementById('ctrl-panel').style.display='none'})();
 </script>
 </body>
 </html>
