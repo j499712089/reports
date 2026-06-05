@@ -40,7 +40,7 @@ body[data-theme="藕荷"]{--bg-deep:#140f13;--bg-card:#161115;--bg-card-hover:#1
 body{font-family:"PingFang SC","Microsoft YaHei","Noto Serif SC",serif;background-color:var(--bg-deep);color:var(--text-main);line-height:1.85;position:relative;transition:background-color .8s,color .8s}
 body::before{content:'';position:fixed;inset:0;background-image:var(--bg-texture);opacity:var(--bg-texture-opacity);pointer-events:none;z-index:0;transition:opacity .5s}
 body.has-bg::before{background-image:var(--custom-bg)!important;background-size:var(--bg-size);background-position:var(--bg-pos);background-repeat:var(--bg-repeat)}
-.container{max-width:840px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.container{max-width:960px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 .cover{text-align:center;padding:100px 0 80px;border-bottom:1px solid var(--border-strong);position:relative}
 .cover::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--divider-shimmer) 50%,transparent 100%);background-size:200% 100%;animation:shimmerLine 3s ease-in-out infinite}
 .cover .seal{font-size:14px;letter-spacing:6px;color:var(--gold-dark);margin-bottom:30px}
@@ -61,7 +61,7 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 .chart-table td{padding:14px 10px;text-align:center;border:1px solid var(--border-subtle);background:var(--bg-card)}
 .chart-table td.highlight{color:var(--gold-main);font-weight:600}.chart-table .stem-cell{font-size:20px;font-weight:600;color:var(--stem-color)}.chart-table .branch-cell{font-size:16px;color:var(--branch-color)}.chart-table .god-cell{font-size:14px;color:var(--god-color)}
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
-.card{background:var(--bg-card);border:1px solid var(--border-subtle);padding:24px;border-radius:4px;position:relative;overflow:hidden;transition:background .3s,transform .3s,z-index .2s;cursor:pointer}
+.card{background:var(--bg-card);border:1px solid var(--border-subtle);padding:16px 18px;border-radius:4px;position:relative;overflow:hidden;transition:background .3s,transform .3s,z-index .2s;cursor:pointer}
 .card::before{content:'';position:absolute;inset:-1px;border-radius:5px;padding:1px;background:conic-gradient(from var(--card-angle,0deg),transparent 40%,var(--glow-light) 55%,var(--glow-color) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:var(--glow-mode) var(--glow-speed) linear infinite;pointer-events:none;z-index:0}
 .card:hover{background:var(--bg-card-hover);transform:translateY(-1px);box-shadow:0 2px 12px rgba(0,0,0,.3)}
 .card h4{color:var(--gold-main);font-size:1.05rem;margin-bottom:12px;letter-spacing:2px;position:relative;z-index:1}
