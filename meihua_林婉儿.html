@@ -57,8 +57,8 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 .cover::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--divider-shimmer) 50%,transparent 100%);background-size:200% 100%;animation:shimmerLine 3s ease-in-out infinite}
 .cover .seal{font-size:14px;letter-spacing:6px;color:var(--gold-dark);margin-bottom:30px}
 .cover h1{font-size:42px;font-weight:300;letter-spacing:12px;margin-bottom:20px;color:var(--gold-main)}
-.cover .bazi-display{display:flex;justify-content:center;gap:24px;margin:40px 0;flex-wrap:wrap}
-.cover .bazi-pillar{text-align:center}.cover .bazi-pillar .stem{font-size:28px;color:var(--gold-light);font-weight:600}.cover .bazi-pillar .branch{font-size:24px;color:var(--gold-pale);margin-top:4px}
+.cover .domain-display, .cover .bazi-display{display:flex;justify-content:center;gap:24px;margin:40px 0;flex-wrap:wrap}
+.cover .domain-badge, .cover .bazi-pillar{text-align:center}.cover .domain-badge, .cover .bazi-pillar .stem{font-size:28px;color:var(--gold-light);font-weight:600}.cover .domain-badge, .cover .bazi-pillar .branch{font-size:24px;color:var(--gold-pale);margin-top:4px}
 .cover .mingjian{font-size:22px;color:var(--gold-dark);letter-spacing:10px;margin-top:32px}.cover .tagline{font-size:28px;color:var(--gold-light);margin-top:40px;font-family:"LiSu","STLiti","YouYuan",serif;letter-spacing:4px;display:inline-block;padding:18px 40px;position:relative;text-shadow:0 0 24px var(--glow-color);border-radius:8px}.cover .tagline::before{content:"";position:absolute;inset:-2px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--card-angle,0deg),transparent 30%,var(--glow-light) 55%,var(--gold-light) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:marqueeGlow 3s linear infinite;z-index:0;pointer-events:none}
 .cover .meta{font-size:1.1rem;color:var(--gold-light);margin-top:50px;letter-spacing:2px}.cover .meta::before{content:'▎';margin-right:6px}
 
@@ -120,7 +120,7 @@ body.editing .card,body.editing .plain-talk,body.editing .guide-list li,body.edi
 @keyframes timelineGlow{0%,100%{background:linear-gradient(180deg,var(--divider-shimmer) 0%,var(--border-strong) 40%,var(--border-strong) 60%,var(--divider-shimmer) 100%)}50%{background:linear-gradient(180deg,var(--divider-shimmer) 0%,var(--border-strong) 20%,var(--border-strong) 80%,var(--divider-shimmer) 100%)}}
 @keyframes stillOff{from{--card-angle:0deg}to{--card-angle:0deg}}
 @media print{body{background:var(--bg-deep)!important;color:var(--text-main)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}#ctrl-bar,#publish-toast,.popup-overlay,.card::before,.month-cell::before,.section::after,.cover::after,.chart-table::after,.plain-talk::after,.guide-list li::after,.card{background:var(--bg-card)!important;border:1px solid var(--border-subtle)!important}.chart-table td{background:var(--bg-card)!important}.plain-talk{background:var(--bg-card)!important.section,.card,.plain-talk,.timeline,.card-grid,.wuxing-bar,.month-grid,.chart-table{page-break-inside:avoid}.cover{page-break-after:always}.section-title{margin-top:20px}@page{margin:1.5cm}}
-@media(max-width:500px){body{padding:0 6px;overflow-x:hidden}.container{padding:0 30px;padding-left:max(30px,env(safe-area-inset-left));padding-right:max(30px,env(safe-area-inset-right))}.cover{padding:50px 0 40px}.cover h1{font-size:26px;letter-spacing:6px}.cover .seal{font-size:11px;padding:0 8px}.cover .bazi-display{gap:10px;padding:0 8px}.cover .bazi-pillar .stem{font-size:22px}.cover .bazi-pillar .branch{font-size:18px}.cover .tagline{font-size:20px;letter-spacing:4px;padding:12px 20px}.cover .meta{font-size:.95rem;margin-top:30px}.section{padding:36px 0}.section-title{font-size:18px;letter-spacing:4px;margin-bottom:20px}.card-grid{grid-template-columns:1fr;gap:12px}.card{padding:16px}.card .value{font-size:17px}.chart-table{font-size:.8rem}.chart-table th,.chart-table td{padding:8px 4px}.chart-table .stem-cell{font-size:16px}.chart-table .branch-cell{font-size:13px}.month-grid{grid-template-columns:repeat(3,1fr);gap:4px}.month-cell{padding:6px}.timeline{padding-left:22px}.timeline-item::before{left:-18px;width:7px;height:7px}.popup-box{width:90vw;padding:16px}#ctrl-bar{gap:4px;padding:6px 8px}#ctrl-bar select,#ctrl-bar button{font-size:10px;padding:3px 6px}}
+@media(max-width:500px){body{padding:0 6px;overflow-x:hidden}.container{padding:0 30px;padding-left:max(30px,env(safe-area-inset-left));padding-right:max(30px,env(safe-area-inset-right))}.cover{padding:50px 0 40px}.cover h1{font-size:26px;letter-spacing:6px}.cover .seal{font-size:11px;padding:0 8px}.cover .domain-display, .cover .bazi-display{gap:10px;padding:0 8px}.cover .domain-badge, .cover .bazi-pillar .stem{font-size:22px}.cover .domain-badge, .cover .bazi-pillar .branch{font-size:18px}.cover .tagline{font-size:20px;letter-spacing:4px;padding:12px 20px}.cover .meta{font-size:.95rem;margin-top:30px}.section{padding:36px 0}.section-title{font-size:18px;letter-spacing:4px;margin-bottom:20px}.card-grid{grid-template-columns:1fr;gap:12px}.card{padding:16px}.card .value{font-size:17px}.chart-table{font-size:.8rem}.chart-table th,.chart-table td{padding:8px 4px}.chart-table .stem-cell{font-size:16px}.chart-table .branch-cell{font-size:13px}.month-grid{grid-template-columns:repeat(3,1fr);gap:4px}.month-cell{padding:6px}.timeline{padding-left:22px}.timeline-item::before{left:-18px;width:7px;height:7px}.popup-box{width:90vw;padding:16px}#ctrl-bar{gap:4px;padding:6px 8px}#ctrl-bar select,#ctrl-bar button{font-size:10px;padding:3px 6px}}
 </style>
 </head>
 <body class="" data-theme="玄金">
@@ -128,8 +128,8 @@ body.editing .card,body.editing .plain-talk,body.editing .guide-list li,body.edi
 <div class=cover>
 <div class=seal>✦命签 · 司 命 星 君 · 南 斗 天 府</div>
 <h1>梅花易数占断 · 林婉儿</h1>
-<div class=bazi-display>
-<div class=bazi-pillar><div class=stem style="font-size:22px;letter-spacing:4px">年月日时起卦 · 火风鼎䷱→水风井䷯ · 动九三爻</div></div>
+<div class=domain-display>
+<div class=domain-badge><div class=stem style="font-size:22px;letter-spacing:4px">年月日时起卦 · 火风鼎䷱→水风井䷯ · 动九三爻</div></div>
 </div>
 <div class=mingjian>✦ 命 笺 ✦</div>
 <div class=tagline>"「鼎革取新，井养不穷」"</div>
@@ -138,42 +138,42 @@ body.editing .card,body.editing .plain-talk,body.editing .guide-list li,body.edi
 <div class=container>
 <!-- ══ 壹 · 卦象总览 ══ -->
 <div class=section><div class=section-title>壹 · 卦象总览</div>
-<div class=plain-talk><div class=label>卦象详解</div>本卦火风鼎，上离下巽——火在风上，薪火相传之象。鼎者，烹任之器，革故鼎新。九三爻动：鼎耳革，其行塞——变革中有阻滞，但最终必成。变卦水风井，上坎下巽——井水洁净，养人无穷。本卦体卦为巽木（下卦），用卦为离火（上卦），木生火——体生用，泄气之象，问事虽成但劳心劳力。</div>
+<div class=plain-talk><div class=label>卦象详解</div>九三爻辞曰：鼎耳革，其行塞，雉膏不食，方雨亏悔，终吉。此处奇验：鼎耳（中空）被革（变），阻塞不通，虽有肥肉不得食——好事多磨之意。但爻辞以"终吉"收尾——过程虽艰，结局光明。变卦井卦——井深水清，需要认真淘洗方能取用。鼎卦变井卦，启示：先破后立，旧的不去新的不来。</div>
 <div class=card-grid>
-<div class="card gold"><h4>本卦</h4><div class=value>火风鼎䷱</div><p>九三爻辞曰：鼎耳革，其行塞，雉膏不食，方雨亏悔，终吉。此处奇验：鼎耳（中空）被革（变），阻塞不通，虽有肥肉不得食——好事多磨之意。但爻辞以"终吉"收尾——过程虽艰，结局光明。变卦井卦——井深水清，需要认真淘洗方能取用。鼎卦变井卦，启示：先破后立，旧的不去新的不来。</p></div>
-<div class="card"><h4>之卦</h4><div class=value>水风井䷯</div><p>体用生克：体卦巽木主柔韧，用卦离火主光明。木生火为体生用——这是你付出别人得利之象。如果你是问事业，意味着你的努力最终会让团队/他人受益；如果是问感情，则你为对方付出较多。好在巽木为风，离火为日——风火相济，最终的格局不会差。</p></div>
+<div class="card gold"><h4>本卦</h4><div class=value>火风鼎䷱</div><p>体用生克：体卦巽木主柔韧，用卦离火主光明。木生火为体生用——这是你付出别人得利之象。如果你是问事业，意味着你的努力最终会让团队/他人受益；如果是问感情，则你为对方付出较多。好在巽木为风，离火为日——风火相济，最终的格局不会差。</p></div>
+<div class="card"><h4>之卦</h4><div class=value>水风井䷯</div><p>本卦火风鼎，上离下巽——火在风上，薪火相传之象。鼎者，烹任之器，革故鼎新。九三爻动：鼎耳革，其行塞——变革中有阻滞，但最终必成。变卦水风井，上坎下巽——井水洁净，养人无穷。本卦体卦为巽木（下卦），用卦为离火（上卦），木生火——体生用，泄气之象，问事虽成但劳心劳力。</p></div>
 </div>
 </div>
 <!-- ══ 贰 · 体用生克 ══ -->
 <div class=section><div class=section-title>贰 · 体用生克</div>
-<div class=plain-talk><div class=label>体用详解</div>体卦（下卦）巽为风，属木，主柔顺渗透。用卦（上卦）离为火，属明，主光明依附。木生火——体生用，为泄气的格局。这暗示当前你所谋之事，需要你大量付出但短期回报未必对等。好在巽木韧而不断，离火明而不烈——长期来看积蓄的能量终将释放。</div>
+<div class=plain-talk><div class=label>体用详解</div>体用旺衰：起卦在辰时（辰为土，土休囚于夏），午月火旺——用卦离火得月令之助，极旺。体卦巽木逢夏火旺月，木气受泄，体弱而用强。建议：当前不宜大举出兵，宜积蓄能量、等待时机。等到秋金当令，金克木制火，体用重新平衡，才是发力之时。</div>
 <div class=card-grid>
-<div class="card gold"><h4>体卦</h4><div class=value>—</div><p>体用旺衰：起卦在辰时（辰为土，土休囚于夏），午月火旺——用卦离火得月令之助，极旺。体卦巽木逢夏火旺月，木气受泄，体弱而用强。建议：当前不宜大举出兵，宜积蓄能量、等待时机。等到秋金当令，金克木制火，体用重新平衡，才是发力之时。</p></div>
-<div class="card"><h4>用卦</h4><div class=value>—</div><p>互卦看内因：本卦互卦为泽天夬（二至四爻为乾、三至五爻为兑），隐藏着"决断"的信息。体用之间夹着夬卦——说明你内心其实已经知道了答案，只是缺乏临门一脚的勇气。变卦互卦为火泽睽——事情发展过程中会有分歧和背离，提前做好心理准备。</p></div>
+<div class="card gold"><h4>体卦</h4><div class=value>—</div><p>互卦看内因：本卦互卦为泽天夬（二至四爻为乾、三至五爻为兑），隐藏着"决断"的信息。体用之间夹着夬卦——说明你内心其实已经知道了答案，只是缺乏临门一脚的勇气。变卦互卦为火泽睽——事情发展过程中会有分歧和背离，提前做好心理准备。</p></div>
+<div class="card"><h4>用卦</h4><div class=value>—</div><p>体卦（下卦）巽为风，属木，主柔顺渗透。用卦（上卦）离为火，属明，主光明依附。木生火——体生用，为泄气的格局。这暗示当前你所谋之事，需要你大量付出但短期回报未必对等。好在巽木韧而不断，离火明而不烈——长期来看积蓄的能量终将释放。</p></div>
 </div>
 </div>
 <!-- ══ 叁 · 八卦类象 ══ -->
 <div class=section><div class=section-title>叁 · 八卦类象</div>
-<div class=plain-talk><div class=label>类象详解</div>巽为风、为入、为木——对应你的事业有"渗透"之象，以柔克刚最能成事。离为火、为明、为文章——你的才华需要展示出来，暗处生光不如明处耀眼。鼎卦象烹饪——你正在"烹制"一件大作品，需要耐心等待火候。</div>
+<div class=plain-talk><div class=label>类象详解</div>离为雉、为目——鼎卦爻辞的"雉膏不食"直接取象离为雉。眼睛发炎或视力问题需注意。巽为绳直、为工——你的工作与手工、细致活有关。坎为井、为水——井卦预示你需要在人际关系中"深挖"而非"广撒网"，三两知己胜过多方应酬。</div>
 <div class=card-grid>
-<div class="card gold"><h4>上卦类象</h4><div class=value>—</div><p>离为雉、为目——鼎卦爻辞的"雉膏不食"直接取象离为雉。眼睛发炎或视力问题需注意。巽为绳直、为工——你的工作与手工、细致活有关。坎为井、为水——井卦预示你需要在人际关系中"深挖"而非"广撒网"，三两知己胜过多方应酬。</p></div>
-<div class="card"><h4>下卦类象</h4><div class=value>—</div><p>五爻君位在离卦——上级或决策层目前是在关注你的，只是表现不明显。初爻在巽体——根基尚浅，还需加固。建议"淘井"式的深耕而非激进扩张。上爻在坎——长远来看需要引入新的资源（水），才能让井水常清。</p></div>
+<div class="card gold"><h4>上卦类象</h4><div class=value>—</div><p>五爻君位在离卦——上级或决策层目前是在关注你的，只是表现不明显。初爻在巽体——根基尚浅，还需加固。建议"淘井"式的深耕而非激进扩张。上爻在坎——长远来看需要引入新的资源（水），才能让井水常清。</p></div>
+<div class="card"><h4>下卦类象</h4><div class=value>—</div><p>巽为风、为入、为木——对应你的事业有"渗透"之象，以柔克刚最能成事。离为火、为明、为文章——你的才华需要展示出来，暗处生光不如明处耀眼。鼎卦象烹饪——你正在"烹制"一件大作品，需要耐心等待火候。</p></div>
 </div>
 </div>
 <!-- ══ 肆 · 占断结论 ══ -->
 <div class=section><div class=section-title>肆 · 占断结论</div>
-<div class=plain-talk><div class=label>断语详解</div>问事业：鼎革之象，适合考虑职业转型或业务升级。你目前可能在"费力多收获少"的阶段——鼎卦九三的困境。但终吉。秋季（金旺制木火平衡）后局面打开。问感情：鼎卦九三"雉膏不食"——好的缘分到了面前但你还没接住。注意身边那个默默关心你的人。</div>
+<div class=plain-talk><div class=label>断语详解</div>问财运：鼎卦主"烹饪"，食为财——财运是有的，但要经过"加工"（努力）才能得到。井卦主"养人"——长期稳定的收入来源在精耕细作之后。不宜投机，宜做实业的积累。问健康：鼎卦九三"方雨亏悔"——雨为水，肾水不足之象。注意作息规律，补水养阴。</div>
 <div class=card-grid>
-<div class="card gold"><h4>结论</h4><div class=value>—</div><p>问财运：鼎卦主"烹饪"，食为财——财运是有的，但要经过"加工"（努力）才能得到。井卦主"养人"——长期稳定的收入来源在精耕细作之后。不宜投机，宜做实业的积累。问健康：鼎卦九三"方雨亏悔"——雨为水，肾水不足之象。注意作息规律，补水养阴。</p></div>
-<div class="card"><h4>补充</h4><div class=value>—</div><p>问出行：鼎卦变井卦，火下水上——水火既济的前兆。出行计划可成，但会有小波折。巽为风为行——行程变动多，宜灵活应对。坎为水为险——途中注意水险（交通工具）。鼎卦革故之象——这次出行会带来你看待事情的新视角。</p></div>
+<div class="card gold"><h4>结论</h4><div class=value>—</div><p>问出行：鼎卦变井卦，火下水上——水火既济的前兆。出行计划可成，但会有小波折。巽为风为行——行程变动多，宜灵活应对。坎为水为险——途中注意水险（交通工具）。鼎卦革故之象——这次出行会带来你看待事情的新视角。</p></div>
+<div class="card"><h4>补充</h4><div class=value>—</div><p>问事业：鼎革之象，适合考虑职业转型或业务升级。你目前可能在"费力多收获少"的阶段——鼎卦九三的困境。但终吉。秋季（金旺制木火平衡）后局面打开。问感情：鼎卦九三"雉膏不食"——好的缘分到了面前但你还没接住。注意身边那个默默关心你的人。</p></div>
 </div>
 </div>
 <!-- ══ 伍 · 应期判断 ══ -->
 <div class=section><div class=section-title>伍 · 应期判断</div>
-<div class=plain-talk><div class=label>应期详解</div>九三爻辰动应午日，本周内见分晓。变卦井卦上坎下巽，坎为冬、巽为春夏之交——大格局的转变在秋冬之际。鼎卦互卦夬为决断——关键时间点在农历五月下旬（午月未日前后）。</div>
+<div class=plain-talk><div class=label>应期详解</div>井卦初六：井泥不食——刚开始淘井时水质混浊，过一段时间才清。对应你的事：现在的混乱是正常的，不要急。井卦九五：井冽寒泉食——到秋天（金生水时）水源（机会）自然清澈。耐心是最好的策略。</div>
 <div class=card-grid>
-<div class="card gold"><h4>近期</h4><div class=value>—</div><p>井卦初六：井泥不食——刚开始淘井时水质混浊，过一段时间才清。对应你的事：现在的混乱是正常的，不要急。井卦九五：井冽寒泉食——到秋天（金生水时）水源（机会）自然清澈。耐心是最好的策略。</p></div>
-<div class="card"><h4>远期</h4><div class=value>—</div><p>{应期详解_2}</p></div>
+<div class="card gold"><h4>近期</h4><div class=value>—</div><p>{应期详解_2}</p></div>
+<div class="card"><h4>远期</h4><div class=value>—</div><p>九三爻辰动应午日，本周内见分晓。变卦井卦上坎下巽，坎为冬、巽为春夏之交——大格局的转变在秋冬之际。鼎卦互卦夬为决断——关键时间点在农历五月下旬（午月未日前后）。</p></div>
 </div>
 </div>
 <!-- ══ 陆 · 古籍佐证 ══ -->
