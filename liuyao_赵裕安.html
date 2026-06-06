@@ -89,6 +89,8 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 to{opacity:1;transform:translateX(-50%) translateY(0)}}
 body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover .tagline::before,body.no-glow .section::after,body.no-glow .cover::after,body.no-glow .chart-table::after,body.no-glow .plain-talk::after,body.no-glow .guide-list li::after,body.no-glow .timeline::before{animation:none!important;opacity:0!important}
 
+@property --card-angle{syntax:'<angle>';initial-value:0deg;inherits:false}@property --cell-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+
 
 @keyframes rotateGlow{0%{--card-angle:0deg;--cell-angle:0deg}100%{--card-angle:360deg;--cell-angle:360deg}}
 @keyframes fastGlow{0%{--card-angle:0deg;--cell-angle:0deg}100%{--card-angle:360deg;--cell-angle:360deg}}
