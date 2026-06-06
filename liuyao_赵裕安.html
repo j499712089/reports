@@ -90,15 +90,15 @@ to{opacity:1;transform:translateX(-50%) translateY(0)}}
 body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover .tagline::before,body.no-glow .section::after,body.no-glow .cover::after,body.no-glow .chart-table::after,body.no-glow .plain-talk::after,body.no-glow .guide-list li::after,body.no-glow .timeline::before{animation:none!important;opacity:0!important}
 
 
-@keyframes rotateGlow{from{--card-angle:0deg;--cell-angle:0deg}to{--card-angle:360deg;--cell-angle:360deg}}
-@keyframes fastGlow{from{--card-angle:0deg;--cell-angle:0deg}to{--card-angle:360deg;--cell-angle:360deg}}
+@keyframes rotateGlow{0%{--card-angle:0deg;--cell-angle:0deg}100%{--card-angle:360deg;--cell-angle:360deg}}
+@keyframes fastGlow{0%{--card-angle:0deg;--cell-angle:0deg}100%{--card-angle:360deg;--cell-angle:360deg}}
 @keyframes breatheGlow{0%,100%{--card-angle:0deg}50%{--card-angle:180deg}}
 @keyframes rainbowGlow{0%{--card-angle:0deg}25%{--card-angle:90deg}50%{--card-angle:180deg}75%{--card-angle:270deg}100%{--card-angle:360deg}}
 @keyframes pulseGlow{0%,100%{--card-angle:0deg;opacity:.6}50%{--card-angle:90deg;opacity:1}}
 @keyframes upDownGlow{0%{--card-angle:0deg;--cell-angle:0deg}50%{--card-angle:90deg;--cell-angle:90deg}100%{--card-angle:0deg;--cell-angle:0deg}}
 @keyframes leftRightGlow{0%{--card-angle:-90deg}100%{--card-angle:90deg}}
 @keyframes alternateGlow{0%{--card-angle:0deg}50%{--card-angle:180deg}100%{--card-angle:360deg}}
-@keyframes marqueeGlow{from{--card-angle:0deg}to{--card-angle:360deg}}
+@keyframes marqueeGlow{0%{--card-angle:0deg}100%{--card-angle:360deg}}
 @keyframes shimmerLine{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @keyframes shimmerSwipe{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(-100%)}}
 @keyframes peakPulse{0%,100%{box-shadow:0 0 4px var(--peak-glow)}50%{box-shadow:0 0 16px var(--peak-glow)}}
