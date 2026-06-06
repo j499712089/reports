@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -47,7 +47,7 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 .cover h1{font-size:42px;font-weight:300;letter-spacing:12px;margin-bottom:20px;color:var(--gold-main)}
 .cover .domain-display, .cover .bazi-display{display:flex;justify-content:center;gap:24px;margin:40px 0;flex-wrap:wrap}
 .cover .domain-badge, .cover .bazi-pillar{text-align:center}.cover .domain-badge, .cover .bazi-pillar .stem{font-size:28px;color:var(--gold-light);font-weight:600}.cover .domain-badge, .cover .bazi-pillar .branch{font-size:24px;color:var(--gold-pale);margin-top:4px}
-.cover .hex-poem{max-width:500px;margin:30px auto;padding:18px 24px;border:1px solid var(--border-strong);border-radius:4px;display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--bg-card);position:relative;overflow:hidden}.cover .hex-poem::before{content:'';position:absolute;inset:-2px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--card-angle,0deg),transparent 30%,var(--glow-light) 55%,var(--gold-light) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:marqueeGlow 3s linear infinite;z-index:0;pointer-events:none}.cover .hex-poem .poem-line{font-size:17px;color:var(--gold-main);letter-spacing:4px;position:relative;z-index:1;font-style:italic}.cover .mingjian{font-size:22px;color:var(--gold-dark);letter-spacing:10px;margin-top:32px}.cover .tagline{font-size:28px;color:var(--gold-light);margin-top:40px;font-family:"LiSu","STLiti","YouYuan",serif;letter-spacing:4px;display:inline-block;padding:18px 40px;position:relative;text-shadow:0 0 24px var(--glow-color);border-radius:8px}.cover .tagline::before{content:"";position:absolute;inset:-2px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--card-angle,0deg),transparent 30%,var(--glow-light) 55%,var(--gold-light) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:marqueeGlow 3s linear infinite;z-index:0;pointer-events:none}
+.cover .mingjian{font-size:22px;color:var(--gold-dark);letter-spacing:10px;margin-top:32px}.cover .tagline{font-size:28px;color:var(--gold-light);margin-top:40px;font-family:"LiSu","STLiti","YouYuan",serif;letter-spacing:4px;display:inline-block;padding:18px 40px;position:relative;text-shadow:0 0 24px var(--glow-color);border-radius:8px}.cover .tagline::before{content:"";position:absolute;inset:-2px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--card-angle,0deg),transparent 30%,var(--glow-light) 55%,var(--gold-light) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:marqueeGlow 3s linear infinite;z-index:0;pointer-events:none}
 .cover .meta{font-size:1.1rem;color:var(--gold-light);margin-top:50px;letter-spacing:2px}.cover .meta::before{content:'▎';margin-right:6px}
 
 .section{padding:60px 0;border-bottom:1px solid var(--border-strong);position:relative}
@@ -87,7 +87,7 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 .footer{text-align:center;padding:60px 0;font-size:12px;color:var(--text-dim);letter-spacing:3px}.footer .seal{font-size:16px;color:var(--gold-dark);margin-bottom:12px}
 #ctrl-bar select,#ctrl-bar button{background:var(--table-header-bg);color:var(--text-main);border:1px solid var(--border-subtle);border-radius:3px;padding:4px 8px;font-size:11px;cursor:pointer;font-family:inherit}#ctrl-bar button:hover,#ctrl-bar select:hover{border-color:var(--gold-main);color:var(--gold-main)}#ctrl-bar .spacer{flex:1}#ctrl-bar .btn-primary{background:var(--gold-dark);color:var(--bg-deep);font-weight:700;border-color:var(--gold-main)}
 to{opacity:1;transform:translateX(-50%) translateY(0)}}
-body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover .tagline::before,body.no-glow .cover .hex-poem::before,body.no-glow .section::after,body.no-glow .cover::after,body.no-glow .chart-table::after,body.no-glow .plain-talk::after,body.no-glow .guide-list li::after,body.no-glow .timeline::before{animation:none!important;opacity:0!important}
+body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover .tagline::before,body.no-glow .section::after,body.no-glow .cover::after,body.no-glow .chart-table::after,body.no-glow .plain-talk::after,body.no-glow .guide-list li::after,body.no-glow .timeline::before{animation:none!important;opacity:0!important}
 
 
 @keyframes rotateGlow{from{--card-angle:0deg;--cell-angle:0deg}to{--card-angle:360deg;--cell-angle:360deg}}
@@ -119,10 +119,6 @@ body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover 
     <div class="hexagram"><div class="symbol">䷷</div><div class="name">火山旅</div><div class="sub">离上艮下 · 离宫一世 · 属火</div></div>
     <div class="arrow">→</div>
     <div class="hexagram"><div class="symbol">䷴</div><div class="name">风山渐</div><div class="sub">巽上艮下</div></div>
-  </div>
-  <div class="hex-poem">
-    <span class="poem-line">旅火照山行且止，渐风入巽进以徐</span>
-    <span class="poem-line">漂泊原是寻路客，徐行终抵大德途</span>
   </div>
   <div class=mingjian>✦ 卦 笺 ✦</div>
   <div class=tagline>&quot;{卦签slogan}&quot;</div>
