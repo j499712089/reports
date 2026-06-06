@@ -47,7 +47,7 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 .cover h1{font-size:42px;font-weight:300;letter-spacing:12px;margin-bottom:20px;color:var(--gold-main)}
 .cover .domain-display, .cover .bazi-display{display:flex;justify-content:center;gap:24px;margin:40px 0;flex-wrap:wrap}
 .cover .domain-badge, .cover .bazi-pillar{text-align:center}.cover .domain-badge, .cover .bazi-pillar .stem{font-size:28px;color:var(--gold-light);font-weight:600}.cover .domain-badge, .cover .bazi-pillar .branch{font-size:24px;color:var(--gold-pale);margin-top:4px}
-.cover .mingjian{font-size:22px;color:var(--gold-dark);letter-spacing:10px;margin-top:32px}.cover .tagline{font-size:28px;color:var(--gold-light);margin-top:40px;font-family:"LiSu","STLiti","YouYuan",serif;letter-spacing:4px;display:inline-block;padding:18px 40px;position:relative;text-shadow:0 0 24px var(--glow-color);border-radius:8px}.cover .tagline::before{content:"";position:absolute;inset:-2px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--card-angle,0deg),transparent 30%,var(--glow-light) 55%,var(--gold-light) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:marqueeGlow 2s linear infinite;z-index:0;pointer-events:none}
+.cover .mingjian{font-size:22px;color:var(--gold-dark);letter-spacing:10px;margin-top:32px}.cover .tagline{font-size:28px;color:var(--gold-light);margin-top:40px;font-family:"LiSu","STLiti","YouYuan",serif;letter-spacing:4px;display:inline-block;padding:18px 40px;position:relative;text-shadow:0 0 24px var(--glow-color);border-radius:8px}.cover .tagline::before{content:"";position:absolute;inset:-2px;border-radius:10px;padding:2.5px;background:conic-gradient(from var(--card-angle,0deg),transparent 30%,var(--glow-light) 55%,var(--gold-light) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:marqueeGlow 1.2s linear infinite;z-index:0;pointer-events:none}
 .cover .meta{font-size:1.1rem;color:var(--gold-light);margin-top:50px;letter-spacing:2px}.cover .meta::before{content:'▎';margin-right:6px}
 
 .section{padding:60px 0;border-bottom:1px solid var(--border-strong);position:relative}
@@ -98,7 +98,7 @@ body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover 
 @keyframes upDownGlow{0%{--card-angle:0deg;--cell-angle:0deg}50%{--card-angle:90deg;--cell-angle:90deg}100%{--card-angle:0deg;--cell-angle:0deg}}
 @keyframes leftRightGlow{0%{--card-angle:-90deg}100%{--card-angle:90deg}}
 @keyframes alternateGlow{0%{--card-angle:0deg}50%{--card-angle:180deg}100%{--card-angle:360deg}}
-@keyframes marqueeGlow{0%{--card-angle:0deg}20%{--card-angle:72deg}40%{--card-angle:144deg}60%{--card-angle:216deg}80%{--card-angle:288deg}100%{--card-angle:360deg}}
+@keyframes marqueeGlow{from{--card-angle:0deg}to{--card-angle:360deg}}
 @keyframes shimmerLine{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @keyframes shimmerSwipe{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(-100%)}}
 @keyframes peakPulse{0%,100%{box-shadow:0 0 4px var(--peak-glow)}50%{box-shadow:0 0 16px var(--peak-glow)}}
