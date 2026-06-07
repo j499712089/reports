@@ -84,7 +84,7 @@ body.has-bg::before{background-image:var(--custom-bg)!important;background-size:
 .month-cell::before{content:'';position:absolute;inset:-1px;border-radius:3px;padding:1px;background:conic-gradient(from var(--cell-angle,0deg),transparent 35%,var(--glow-light) 55%,var(--glow-color) 75%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:rotateGlow 6s linear infinite;pointer-events:none;z-index:0}
 .month-cell .mon{font-size:12px;color:var(--text-dim);position:relative;z-index:1}.month-cell .brief{font-size:13px;color:var(--text-main);margin-top:4px;position:relative;z-index:1}
 .guide-list{list-style:none;padding:0}.guide-list li{padding:14px 0;padding-left:24px;position:relative;border-bottom:1px solid var(--border-subtle);overflow:hidden;cursor:pointer}.guide-list li::before{content:"✦";position:absolute;left:0;top:14px;color:var(--gold-main);font-size:10px;z-index:1}.guide-list li::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--glow-color) 30%,transparent 70%,transparent 100%);background-size:250% 100%;animation:shimmerLine 5s ease-in-out infinite;opacity:.3;pointer-events:none}.guide-list li strong{color:var(--gold-main)}
-.footer{text-align:center;padding:60px 0;font-size:12px;color:var(--text-dim);letter-spacing:3px}.footer .seal{font-size:16px;color:var(--gold-dark);margin-bottom:12px}
+.footer{max-width:840px;margin-left:auto;margin-right:auto;text-align:center;padding:60px 24px;box-sizing:border-box;font-size:12px;color:var(--text-dim);letter-spacing:3px}.footer .seal{font-size:16px;color:var(--gold-dark);margin-bottom:12px}
 body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover .tagline::before,body.no-glow .section::after,body.no-glow .cover::after,body.no-glow .chart-table::after,body.no-glow .plain-talk::after,body.no-glow .guide-list li::after,body.no-glow .cover .divider::after,body.no-glow .timeline::before{animation:none!important;opacity:0!important}
 @property --card-angle{syntax:'<angle>';initial-value:0deg;inherits:false}@property --cell-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
 @keyframes rotateGlow{from{--card-angle:0deg;--cell-angle:0deg}to{--card-angle:360deg;--cell-angle:360deg}}
@@ -103,7 +103,7 @@ body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover 
 @keyframes stillOff{from{--card-angle:0deg}to{--card-angle:0deg}}
 @media print{body{background:var(--bg-deep)!important;color:var(--text-main)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card::before,.month-cell::before,.section::after,.cover::after,.cover .tagline::before,.chart-table::after,.plain-talk::after,.guide-list li::after,.cover .divider::after,.timeline::before{display:none!important}.card{background:var(--bg-card)!important;border:1px solid var(--border-subtle)!important}.chart-table td{background:var(--bg-card)!important}.plain-talk{background:var(--bg-card)!important}.section,.card{page-break-inside:avoid}.cover{page-break-after:always}.section-title{margin-top:20px}@page{margin:1.5cm}}page{size:A4;margin:14mm}}
 @media(max-width:500px){body{padding:0 6px;overflow-x:hidden}.container{padding:0 32px;padding-left:max(32px,env(safe-area-inset-left));padding-right:max(32px,env(safe-area-inset-right))}.cover{padding:50px 0 40px}.cover h1{font-size:26px;letter-spacing:6px}.cover .seal{font-size:11px;padding:0 8px}.cover .bazi-display{gap:10px;padding:0 8px}.cover .bazi-pillar .stem{font-size:22px}.cover .bazi-pillar .branch{font-size:18px}.cover .tagline{font-size:20px;letter-spacing:4px;padding:12px 20px}.cover .meta{font-size:.95rem;margin-top:30px;padding:0 8px}.section{padding:36px 0}.section-title{font-size:18px;letter-spacing:4px;margin-bottom:20px;padding-left:12px}.card-grid{grid-template-columns:1fr;gap:12px}.card{padding:16px}.card .value{font-size:17px}.chart-table{font-size:.8rem}.chart-table th,.chart-table td{padding:8px 4px}.chart-table .stem-cell{font-size:16px}.chart-table .branch-cell{font-size:13px}.month-grid{grid-template-columns:repeat(3,1fr);gap:4px}.month-cell{padding:6px}.timeline{padding-left:22px}.timeline-item::before{left:-18px;width:7px;height:7px}}
-</style>
+\n.yao-compare{display:flex;gap:16px;margin:24px 0}.yao-panel{flex:1;min-width:0}.yao-panel h4{text-align:center;color:var(--gold-main);margin-bottom:12px;letter-spacing:4px}.yao-table{width:100%;border-collapse:collapse;font-size:.85rem}.yao-table th{background:var(--table-header-bg);color:var(--gold-dark);padding:6px 4px;font-weight:400;letter-spacing:1px;text-align:center;border:1px solid var(--border-subtle);font-size:11px}.yao-table td{padding:6px 4px;text-align:center;border:1px solid var(--border-subtle);background:var(--bg-card);font-size:12px}.yao-dong{color:var(--good)}.yao-jing{color:var(--text-dim)}.shiy{color:var(--gold-light);font-weight:600}.ying{color:var(--gold-pale)}@media(max-width:640px){.yao-compare{flex-direction:column}}</style>
 </head>
 <body class="" data-theme="玄金">
 <!-- ═══════════ 封面 ═══════════ -->
@@ -127,45 +127,22 @@ body.no-glow .card::before,body.no-glow .month-cell::before,body.no-glow .cover 
 <div class="section">
   <div class="section-title">壹 · 卦象总览</div>
   <div class="plain-talk"><div class="label">卦象详解</div>命主所问事业与知识库项目，本卦得火山旅䷷，之卦风山渐䷴。旅者，行旅也，漂泊觅路之象；渐者，渐进也，稳步前行之意。从"旅"到"渐"——六个铜钱讲了一个故事：从漫游探索到水到渠成。卦中两爻皆动、皆化父母文书，更是罕见之象——天命所归，该吃这碗饭。</div>
-  <table class="yao-table">
-    <tr><th>爻位</th><th>摇卦</th><th>阴阳</th><th>地支</th><th>五行</th><th>六亲</th><th>世应</th><th>六兽</th></tr>
-    <tr>
-      <td>上爻</td>
-      <td>3花0字·老阳</td>
-      <td class="yao-dong">▅▅▅▅▅ 动</td>
-      <td>巳</td><td>火</td><td>兄弟</td><td>-</td><td>玄武</td>
-    </tr>
-    <tr>
-      <td>五爻</td>
-      <td>0花3字·老阴</td>
-      <td class="yao-dong">▅▅ ▅▅ 动 ⚡</td>
-      <td>未</td><td>土</td><td>子孙</td><td>-</td><td>白虎</td>
-    </tr>
-    <tr>
-      <td>四爻</td>
-      <td>1花2字·少阳</td>
-      <td class="yao-jing">▅▅▅▅▅ 静</td>
-      <td>酉</td><td>金</td><td>妻财</td><td>-</td><td>螣蛇</td>
-    </tr>
-    <tr>
-      <td>三爻</td>
-      <td>1花2字·少阳</td>
-      <td class="yao-jing">▅▅▅▅▅ 静</td>
-      <td>亥</td><td>水</td><td>官鬼</td><td class="ying">应爻</td><td>勾陈</td>
-    </tr>
-    <tr>
-      <td>二爻</td>
-      <td>2花1字·少阴</td>
-      <td class="yao-jing">▅▅ ▅▅ 静</td>
-      <td>丑</td><td>土</td><td>子孙</td><td>-</td><td>朱雀</td>
-    </tr>
-    <tr>
-      <td>初爻</td>
-      <td>2花1字·少阴</td>
-      <td class="yao-jing">▅▅ ▅▅ 静</td>
-      <td>卯</td><td>木</td><td>父母</td><td class="shiy">世爻</td><td>青龙</td>
-    </tr>
-  </table>
+    <div class=yao-compare style="display:flex;gap:16px;margin:24px 0">
+  <div class=yao-panel style="flex:1">
+    <h4 style="text-align:center;color:var(--gold-main);margin-bottom:12px;letter-spacing:4px">本卦 · 火山旅䷷</h4>
+    <table class=yao-table>
+      <tr><th>爻位</th><th>摇卦</th><th>阴阳</th><th>地支</th><th>五行</th><th>六亲</th><th>世应</th><th>六兽</th></tr>
+      <tr><td>上爻</td><td>3花0字·老阳</td><td class="yao-dong">▅▅▅▅▅ 动</td><td>巳</td><td>火</td><td>兄弟</td><td>-</td><td>玄武</td></tr><tr><td>五爻</td><td>0花3字·老阴</td><td class="yao-dong">▅▅ ▅▅ 动 ⚡</td><td>未</td><td>土</td><td>子孙</td><td>-</td><td>白虎</td></tr><tr><td>四爻</td><td>1花2字·少阳</td><td class="yao-jing">▅▅▅▅▅ 静</td><td>酉</td><td>金</td><td>妻财</td><td>-</td><td>螣蛇</td></tr><tr><td>三爻</td><td>1花2字·少阳</td><td class="yao-jing">▅▅▅▅▅ 静</td><td>亥</td><td>水</td><td>官鬼</td><td class="ying">应爻</td><td>勾陈</td></tr><tr><td>二爻</td><td>2花1字·少阴</td><td class="yao-jing">▅▅ ▅▅ 静</td><td>丑</td><td>土</td><td>子孙</td><td>-</td><td>朱雀</td></tr><tr><td>初爻</td><td>2花1字·少阴</td><td class="yao-jing">▅▅ ▅▅ 静</td><td>卯</td><td>木</td><td>父母</td><td class="shiy">世爻</td><td>青龙</td></tr>
+    </table>
+  </div>
+  <div class=yao-panel style="flex:1">
+    <h4 style="text-align:center;color:var(--gold-main);margin-bottom:12px;letter-spacing:4px">之卦 · 风山渐䷴</h4>
+    <table class=yao-table>
+      <tr><th>爻位</th><th>摇卦</th><th>阴阳</th><th>地支</th><th>五行</th><th>六亲</th><th>世应</th><th>六兽</th></tr>
+      <tr><td>上爻</td><td>1花2字·少阳</td><td class="yao-jing">▅▅▅▅▅ 静</td><td>辰</td><td>土</td><td>兄弟</td><td>-</td><td>玄武</td></tr><tr><td>五爻</td><td>1花2字·少阳</td><td class="yao-jing">▅▅▅▅▅ 静</td><td>午</td><td>火</td><td>官鬼</td><td>-</td><td>白虎</td></tr><tr><td>四爻</td><td>3花0字·老阳</td><td class="yao-dong">▅▅▅▅▅ 动</td><td>申</td><td>金</td><td>妻财</td><td class="ying">应爻</td><td>螣蛇</td></tr><tr><td>三爻</td><td>1花2字·少阳</td><td class="yao-jing">▅▅▅▅▅ 静</td><td>亥</td><td>水</td><td>官鬼</td><td>-</td><td>勾陈</td></tr><tr><td>二爻</td><td>2花1字·少阴</td><td class="yao-jing">▅▅ ▅▅ 静</td><td>丑</td><td>土</td><td>子孙</td><td>-</td><td>朱雀</td></tr><tr><td>初爻</td><td>2花1字·少阴</td><td class="yao-jing">▅▅ ▅▅ 静</td><td>卯</td><td>木</td><td>父母</td><td>-</td><td>青龙</td></tr>
+    </table>
+  </div>
+  </div>
   <div class="card-grid">
     <div class="card gold"><h4>卦宫属性</h4><div class="value">离宫 · 火 · 一世卦</div><p>火山旅属离宫一世卦，离为火，主文明、文书、光明。旅卦有"行旅漂泊"之意，然离宫属火，火性向上——漂泊是为了更好的抵达。世爻在初，群阳在上，身在下位而仰望光明，正是创业者之心。</p></div>
     <div class="card"><h4>动爻概况</h4><div class="value">2爻动 · 皆化父母</div><p>五爻未土子孙动化子水父母，上爻巳火兄弟动化卯木父母。两爻齐动、皆归父母——此在六爻中极为罕见，名曰"动归用神"。子孙动化父母：创意输出化为笔底文章；兄弟动化父母：同侪之力皆成案头著作。</p></div>
